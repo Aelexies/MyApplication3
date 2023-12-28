@@ -1,35 +1,71 @@
-package com.example.myapplication3
+fun main() {
+    // 1. Работа с преобразованием строк
+    val word1 = "Hello"
+    val word2 = "Kotlin"
+    val sentence = word1 + ", " + word2 + "!"
+    println(sentence)
+    // 2. Базовая арифметика и вывод результата в консоль
+    val a = 10
+    val b = 4
+    println(a*b-a%b+a/b)
 
-import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import com.example.myapplication3.databinding.ActivityMainBinding
+    // 3. Примеры интерполяции строк
+    val k = 10
+    val l = 5
+    val sumMessage = "Сумма чисел $k и $l равна ${k + l}."
+    println(sumMessage)
 
-class MainActivity : AppCompatActivity() {
+    val name = "Саша"
+    val age = 25
+    val message = "Меня зовут $name и мне $age лет"
+    println(message)
 
-    private lateinit var binding: ActivityMainBinding
+    // 4. Преобразование типов
+    // Преобразование числа в строку
+    val number1 = 42
+    val numberAsString = number1.toString()
+    println("Число как строка: $numberAsString")
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    // Преобразование строки в число
+    val str = "123"
+    val strToInt = str.toInt()
+    println("Строка как число: $strToInt")
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    // 5. Пример условных операторов (if else)
+    val x = 10
+    val y = 5
+    if (x > y) {
+        println("x больше y")
+    } else {
+        println("x меньше или равно y")
+    }
 
-        val navView: BottomNavigationView = binding.navView
+    // 6. Пример цикла for
+    for (i in 1..3) {
+        println("Номер $i")
+    }
 
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
-            )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+    // 6. Пример цикла while
+    var i = 1
+    while (i <= 4) {
+        println("$i")
+        i++
+    }
+
+    // 7. Пример создания отдельной функции
+    val array = intArrayOf(1, 2, 3, 4, 5)
+    printArray(array)
+
+    // 8. Пример работы с массивом
+    val fruits = arrayOf("Вишня", "Манго", "Мандарин")
+    for (fruit in fruits) {
+        println(fruit)
+    }
+}
+
+// Отдельная функция для печати массива
+fun printArray(array: IntArray) {
+    for (element in array) {
+        println(element)
     }
 }
